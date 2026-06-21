@@ -1,13 +1,22 @@
 body {
-    margin: 0;
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: #000000;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+            margin: 0;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        @font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
 }
+
+* { box-sizing: border-box; }
 
 header {
     width: 100%;
@@ -18,83 +27,182 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.hidden-until-launch {
+    display: none;
+    opacity: 0;
 }
 
-.logo-text {
-    font-weight: 700;
-    letter-spacing: -0.5px;
+.slide-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 20px;
 }
 
 .studio-footer {
-    margin-top: auto;
-    padding: 40px 20px;
-    text-align: center;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.5);
+    margin-top: 100px;    
+    padding-bottom: 60px; 
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.studio-footer p {
+    font-size: 18px;      
+    letter-spacing: 0.5px;
 }
 
 .studio-name {
-    color: #ffffff;
-    font-weight: 600;
+    font-size: 18px;      
+    font-weight: 700;     
+    color: #007AFF;       
 }
 
-.download-btn {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.1); 
-    color: white;
+.brand {
+    margin-top: 5px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.brand:hover {
+    opacity: 1;
+}
+
+.header-container {
+position: sticky;
+z-index: 100;
+backdrop-filter: blur(8px);
+width: 70%; max-width: 1100px;
+display: flex;
+justify-content: space-between;
+padding: 0.5rem 1.5rem; 
+top: 8px; 
+position: fixed;
+margin: 10px auto;
+border-radius: 20px; 
+}
+
+.btn-wallet {
+    background: #000;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 25px;
     text-decoration: none;
-    padding: 10px 24px;
-    border-radius: 50px; 
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     font-weight: 600;
     font-size: 14px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
+    transition: 0.3s;
 }
+.btn-wallet:hover { transform: scale(1.05); }
 
-.download-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-}
+        .line-two {
+            display: block;
+            font-size: 5.2rem;
+            color: #000;
+            margin-top: 10px;
+            letter-spacing: -3px;
+        }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
-    width: 90%;
-    max-width: 1000px;
-    padding: 40px 0;
-}
+        .line-one {
+            color: #000;
+        }
 
-.app-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 24px;
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease, background 0.3s ease;
-}
+        .btn-get {
+            margin: 50px 0;
+            background: #000;
+            color: #fff;
+            padding: 22px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.3rem;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-get:hover { transform: scale(1.05); }
 
-.app-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.08);
-}
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 950px;
+            padding: 40px 20px 100px;
+        }
+        .card {
+            background: #f5f5f7;
+            padding: 40px;
+            border-radius: 30px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); background: #f0f0f2; }
+        .card h3 { font-size: 1.6rem; margin: 0 0 10px; }
+        .card p { color: #424245; font-size: 1.1rem; line-height: 1.5; margin: 0; }
 
-.app-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 16px;
-    margin-bottom: 16px;
-}
+        .footer-separator {
+            height: 1px;
+            width: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+            margin-bottom: 30px; 
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-left, .footer-column, .footer-socials {
+            margin-bottom: 20px;
+        }
+
+        .footer-left p {
+            font-size: 12px;
+            margin: 5px 0;
+        }
+
+        .footer-column h4 {
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column a, .footer-container a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover, .footer-container a:hover {
+            color: #fff;
+        }
+
+        .footer-socials a {
+            display: inline-block;
+            width: 34px;
+            height: 34px;
+            background-color: #333;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
